@@ -1,0 +1,123 @@
+{
+  "about": "Starts when the issue is approved. Leaves the email in your Drafts, then archives it once you have sent it.",
+  "cid": "FLOW3",
+  "edges": [
+    {
+      "from": "s_trig",
+      "id": "e_s_trig_s_file",
+      "label": "",
+      "to": "s_file"
+    },
+    {
+      "from": "s_file",
+      "id": "e_s_file_s_logo",
+      "label": "",
+      "to": "s_logo"
+    },
+    {
+      "from": "s_logo",
+      "id": "e_s_logo_s_draft",
+      "label": "",
+      "to": "s_draft"
+    },
+    {
+      "from": "s_draft",
+      "id": "e_s_draft_s_wait",
+      "label": "",
+      "to": "s_wait"
+    },
+    {
+      "from": "s_wait",
+      "id": "e_s_wait_s_copy",
+      "label": "",
+      "to": "s_copy"
+    },
+    {
+      "from": "s_copy",
+      "id": "e_s_copy_s_sent",
+      "label": "",
+      "to": "s_sent"
+    }
+  ],
+  "name": "Draft and send",
+  "nodes": [
+    {
+      "action": "When an item is created or modified",
+      "expect": "Starts when an Issues row's Status becomes Approved.",
+      "id": "s_trig",
+      "piece": "SP1",
+      "status": "Planned",
+      "title": "Issue approved",
+      "type": "trigger",
+      "x": 60,
+      "y": 240
+    },
+    {
+      "action": "Get file content",
+      "expect": "The finished YYYY-MM.html.",
+      "id": "s_file",
+      "piece": "SP6",
+      "status": "Planned",
+      "title": "Get file content: Issue Files",
+      "type": "sharepoint",
+      "x": 290,
+      "y": 240
+    },
+    {
+      "action": "Get file content",
+      "expect": "The two logos, sent as inline cid: parts exactly like September.",
+      "id": "s_logo",
+      "piece": "",
+      "status": "Planned",
+      "title": "Get file content: logos",
+      "type": "sharepoint",
+      "x": 520,
+      "y": 240
+    },
+    {
+      "action": "Send an HTTP request",
+      "expect": "Builds the email with the logos inline and leaves it in your Drafts. You press send. Test in Outlook on Windows first.",
+      "id": "s_draft",
+      "piece": "EM1",
+      "status": "Planned",
+      "title": "Create the draft",
+      "type": "outlook",
+      "x": 750,
+      "y": 240
+    },
+    {
+      "action": "Start and wait for an approval",
+      "expect": "One click from you after you press send.",
+      "id": "s_wait",
+      "piece": "",
+      "status": "Planned",
+      "title": "You confirm it went out",
+      "type": "approval",
+      "x": 980,
+      "y": 240
+    },
+    {
+      "action": "Copy file",
+      "expect": "The issue lands in the archive the same day.",
+      "id": "s_copy",
+      "piece": "SP7",
+      "status": "Planned",
+      "title": "Copy file: Past Issues",
+      "type": "sharepoint",
+      "x": 1210,
+      "y": 240
+    },
+    {
+      "action": "Update item",
+      "expect": "Status Sent, SentAt stamped.",
+      "id": "s_sent",
+      "piece": "SP1",
+      "status": "Planned",
+      "title": "Update item: Issues -> Sent",
+      "type": "sharepoint",
+      "x": 1440,
+      "y": 240
+    }
+  ],
+  "order": 3
+}

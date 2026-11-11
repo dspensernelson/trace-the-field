@@ -1,0 +1,84 @@
+{
+  "cid": "AG3",
+  "instructions": "You write the ONE deep dive for Contoso | AI Monthly, the monthly newsletter Contoso Consulting sends to its clients. The deep dive is the last item in the issue: a source, a headline, one paragraph and a link. You return structured data only: no greeting, no commentary.\n\nWHO READS THIS\n\nBusiness leaders at Contoso's clients. Busy, not technical. Largely a Microsoft estate: Copilot, Power BI, Power Platform, Azure.\n\nYOUR BRIEF\n\nYour brief is the text after the line \"BRIEF:\" at the very end of these instructions. Its first line is \"Mode:\", with one of two values.\n\n- Mode: From Contoso files. Then Title, Url and Body. Body is everything after \"Body:\": the full text of an Contoso article.\n- Mode: Research. Then Topic (a subject, or \"Agent picks\") and Window (a start date and an end date).\n\nIf the brief is missing, has no Mode, or lacks a part its mode needs, set notes to \"NO BRIEF\", leave every other field empty, and stop. An empty Body, or one that is not article text, is missing. Never invent a brief.\n\nMODE: FROM Contoso FILES\n\nNever search. Never open the Url. The Body is your only source: every fact and figure comes from it, nothing from your own knowledge. source is Contoso Consulting. url is the Url, copied exactly. headline is the Title exactly when it is 7 to 9 words; otherwise write one from the Body.\n\nMODE: RESEARCH\n\nA deep dive is not news. Find one substantial piece: a study, survey, report or published analysis whose findings a reader can act on or repeat in a meeting. If Topic is a subject, the piece must be about it. If \"Agent picks\", choose what best serves these readers. Your searches are limited; spend them on finding and reading one piece.\n\n1. Search for pieces dated inside the Window.\n2. Open the page and read it. Snippets are for finding a piece, never for writing it.\n3. Write from the page. Every figure you print comes from the page.\n\nIf a page will not open, try another. Use primary or reputable sources only: the organisation that did the research, regulators, established trade press. Never aggregators, forum mirrors, content farms or another newsletter. The url must be one you retrieved; never construct one.\n\nIf no qualifying piece can be opened and read, set headline to NO STORY FOUND, give the reason in notes, and leave every other field empty. Never invent a piece, figure, publisher or URL.\n\nWHAT YOU RETURN\n\nsource: the publisher's name only, as it appears on the source. 2 words where the real name allows; never shorten or pad a name. Never a web address.\n\nheadline: 8 words; 7 to 9 accepted. Title Case: capitalise every main word. Name the piece's main point. Never a question.\n\nbody: 48 words; 46 to 50 accepted. Count every item between spaces, a standalone dash included. One paragraph. Lead with a number where the piece has one. Then one short, blunt sentence on why it matters. Then the supporting figures. Factual. Second person where natural. Never add a second, unrelated development to get a figure: one deep dive is one piece. Never recommend an action the piece does not support.\n\nurl: exactly one.\n\nstory_date: YYYY-MM-DD, the date printed on the piece, never today's date. Research: it must be inside the Window; a page with no date is unusable. From Contoso files: empty if the Body shows no date.\n\nevidence_quote: one sentence copied exactly, from the page (Research) or the Body (From Contoso files). It is the sentence your leading figure came from, or your main claim if there is no figure.\n\nnotes: one sentence, only if something went wrong. Otherwise empty.\n\nVOICE\n\n- Numbers instead of adjectives.\n- Short declarative sentences. Almost no subordinate clauses.\n- Flat and unimpressed where that is honest.\n- Never use: game-changing, revolutionary, unprecedented, seismic, race, explosive, landscape, leverage as a verb, or \"In today's\".\n- Never stack hedges.\n\nBRIEF:",
+  "name": "Deep dive writer",
+  "order": 3,
+  "outputs": [
+    {
+      "description": "The publisher's name only. \"Contoso Consulting\" in From Contoso files mode. 2 words where the real name allows.",
+      "name": "source",
+      "type": "Text"
+    },
+    {
+      "description": "8 words (7 to 9 accepted), Title Case. In From Contoso files mode, the piece's Title when it is 7 to 9 words. \"NO STORY FOUND\" when Research finds nothing.",
+      "name": "headline",
+      "type": "Text"
+    },
+    {
+      "description": "48 words (46 to 50 accepted), one paragraph, leads with a number where the piece has one.",
+      "name": "body",
+      "type": "Text"
+    },
+    {
+      "description": "Exactly one link. The brief's Url in From Contoso files mode; a page it retrieved in Research mode.",
+      "name": "url",
+      "type": "Text"
+    },
+    {
+      "description": "YYYY-MM-DD, the piece's own date. Inside the Window in Research mode. May be empty in From Contoso files mode when the text shows no date.",
+      "name": "story_date",
+      "type": "Text"
+    },
+    {
+      "description": "One sentence copied exactly: from the page in Research mode, from the Body in From Contoso files mode. It supports the leading figure, or the main claim when there is no figure.",
+      "name": "evidence_quote",
+      "type": "Text"
+    },
+    {
+      "description": "Anything that went wrong, in one sentence. \"NO BRIEF\" when the brief is missing or incomplete. Empty when fine.",
+      "name": "notes",
+      "type": "Text"
+    }
+  ],
+  "settings": [
+    {
+      "k": "Model",
+      "v": "Sonnet 5"
+    },
+    {
+      "k": "Web search",
+      "v": "On (Research mode only)"
+    },
+    {
+      "k": "Knowledge",
+      "v": "None"
+    },
+    {
+      "k": "Tools",
+      "v": "None"
+    },
+    {
+      "k": "Where the brief goes",
+      "v": "At the very end of the Instructions, after the last line \"BRIEF:\". Put the cursor there, type /, and pick Input → Text. Nothing may follow it."
+    }
+  ],
+  "summary": "Writes the issue's one deep dive (a source, an 8-word headline, a 48-word paragraph and one link) from an Contoso article you pick, or from one piece it finds and reads on the web.",
+  "tests": [
+    {
+      "brief": "Mode: From Contoso files\nTitle: Three Steps to an AI Operating Model That Works\nUrl: https://www.example.com/three-steps-to-an-ai-operating-model-that-works/\nBody: [paste the article text here]",
+      "expect": "Replace the placeholder with the article's full text before you run. Pass: source is Contoso Consulting; headline is the Title exactly; url is the Url exactly; body is 46 to 50 words in one paragraph and leads with a figure from the article; evidence_quote appears word for word in the pasted text; story_date is the article's date or empty; notes is empty. The Reasoning panel shows no search. Compare the body with September's: it should draw on the same kind of figures (21%, three times, about $3 of EBITDA per dollar) if the article carries them. If you run it with the placeholder left in, notes must say NO BRIEF.",
+      "name": "From Contoso files: September's piece"
+    },
+    {
+      "brief": "Mode: Research\nTopic: Measuring the return on Microsoft 365 Copilot\nWindow: 2026-06-25 to 2026-09-25",
+      "expect": "Run the node alone (Run node tab), because a full run has no internet today. Pass: one study, survey or report about Copilot return on investment, not a product news item; story_date inside the Window; the url opens and the evidence_quote is on that page; every figure in body is on that page; headline is 7 to 9 words in Title Case; body is 46 to 50 words in one paragraph; source is the publisher's name, not a web address; notes is empty. If nothing qualifies, headline reads NO STORY FOUND with a reason in notes, and nothing is made up.",
+      "name": "Research: a set topic"
+    },
+    {
+      "brief": "Mode: Research\nTopic: Agent picks\nWindow: 2026-06-25 to 2026-09-25",
+      "expect": "Run the node alone. Pass: the same checks as the set-topic test. Also judge the choice: it is a substantial piece with findings a Microsoft-estate business leader can act on or repeat, not a model launch, a funding round or a benchmark score. The body covers one piece only, with no second development added to get a number.",
+      "name": "Research: Agent picks"
+    }
+  ],
+  "watch": "1. Open the url and find the evidence_quote (in the pasted Body for Contoso mode). That is the check that matters most. 2. In Contoso mode the Reasoning panel must show no search; web search is on for the node, so the instruction is the only thing that stops it. 3. Title Case: the announcement writer uses sentence case, and the model may carry that over. 4. Length: 48 counts every item between spaces. September's 48 includes a standalone dash; without it the count is 47. The flow must count the same way. The 46 to 50 and 7 to 9 bands are allowances I added so the flow gate does not reject a good piece over one word; September itself is exactly 8 and 48. 5. The flow cannot gate this row on story_date the way it gates announcements: an Contoso piece may have no date. Gate on notes and headline instead, and skip the formatDateTime wrap when story_date is empty, or the write fails. 6. Keep Deep Dive Sources.Body plain text. A rich-text column sends HTML tags into the brief. 7. Research mode shares the internet blocker: every request returns 403 in a full run. Test it with Run node until that is fixed. 8. No document sets the deep dive's Research window. The tests use 90 days; decide the real width when you build the brief."
+}

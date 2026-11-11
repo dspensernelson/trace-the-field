@@ -1,0 +1,123 @@
+{
+  "about": "Approve on screen 2 fires it. Saves the finished email as a file and gets it signed off.",
+  "cid": "FLOW2",
+  "edges": [
+    {
+      "from": "a_trig",
+      "id": "e_a_trig_a_file",
+      "label": "",
+      "to": "a_file"
+    },
+    {
+      "from": "a_file",
+      "id": "e_a_file_a_appr",
+      "label": "",
+      "to": "a_appr"
+    },
+    {
+      "from": "a_appr",
+      "id": "e_a_appr_a_cond",
+      "label": "",
+      "to": "a_cond"
+    },
+    {
+      "from": "a_cond",
+      "id": "e_a_cond_a_yes",
+      "label": "Yes",
+      "to": "a_yes"
+    },
+    {
+      "from": "a_cond",
+      "id": "e_a_cond_a_no",
+      "label": "No",
+      "to": "a_no"
+    },
+    {
+      "from": "a_no",
+      "id": "e_a_no_a_teams",
+      "label": "",
+      "to": "a_teams"
+    }
+  ],
+  "name": "Approval routing",
+  "nodes": [
+    {
+      "action": "When Power Apps calls a flow",
+      "expect": "Approve on screen 2 calls it with the month and the finished email's HTML (composed once, htmlForSend).",
+      "id": "a_trig",
+      "piece": "APP2",
+      "status": "Planned",
+      "title": "Approve pressed",
+      "type": "trigger",
+      "x": 60,
+      "y": 240
+    },
+    {
+      "action": "Create file",
+      "expect": "Saves YYYY-MM.html. A column can't hold it: September's email is 62,216 characters against a 63,999 limit.",
+      "id": "a_file",
+      "piece": "SP6",
+      "status": "Planned",
+      "title": "Create file: Issue Files",
+      "type": "sharepoint",
+      "x": 290,
+      "y": 240
+    },
+    {
+      "action": "Start and wait for an approval",
+      "expect": "Reviewers get the file link. The approval rule is yours (default: you alone, first to respond).",
+      "id": "a_appr",
+      "piece": "",
+      "status": "Planned",
+      "title": "Start and wait for an approval",
+      "type": "approval",
+      "x": 520,
+      "y": 240
+    },
+    {
+      "action": "If / else",
+      "expect": "Yes or No from the approval.",
+      "id": "a_cond",
+      "piece": "",
+      "status": "Planned",
+      "title": "Approved?",
+      "type": "condition",
+      "x": 750,
+      "y": 240
+    },
+    {
+      "action": "Update item",
+      "expect": "Status Approved. Draft and send starts from this.",
+      "id": "a_yes",
+      "piece": "SP1",
+      "status": "Planned",
+      "title": "Update item: Issues -> Approved",
+      "type": "sharepoint",
+      "x": 980,
+      "y": 160
+    },
+    {
+      "action": "Update item",
+      "expect": "Status back to Editing so you can change it and approve again.",
+      "id": "a_no",
+      "piece": "SP1",
+      "status": "Planned",
+      "title": "Update item: Issues -> Editing",
+      "type": "sharepoint",
+      "x": 980,
+      "y": 320
+    },
+    {
+      "action": "Post message in a chat or channel",
+      "expect": "The reviewers' comments, so you see why it came back.",
+      "id": "a_teams",
+      "piece": "",
+      "status": "Planned",
+      "title": "Post the comments to Teams",
+      "type": "teams",
+      "x": 1210,
+      "y": 320
+    }
+  ],
+  "order": 2
+}

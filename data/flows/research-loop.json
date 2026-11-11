@@ -1,0 +1,625 @@
+{
+  "about": "Run on screen 1 fires it with the month. It reads the month's 8 rows, then runs three lanes side by side: prompts, announcements (with 4 spares) and the deep dive. It never waits for a person. Then it hands the month to you for editing.",
+  "cid": "FLOW1",
+  "edges": [
+    {
+      "from": "n_start",
+      "id": "e_n_start_n_get",
+      "label": "",
+      "to": "n_get"
+    },
+    {
+      "from": "n_get",
+      "id": "e_n_get_p_status",
+      "label": "",
+      "to": "p_status"
+    },
+    {
+      "from": "p_status",
+      "id": "e_p_status_p_switch",
+      "label": "",
+      "to": "p_switch"
+    },
+    {
+      "from": "p_switch",
+      "id": "e_p_switch_p_loop",
+      "label": "Prompts",
+      "to": "p_loop"
+    },
+    {
+      "from": "p_switch",
+      "id": "e_p_switch_a_loop",
+      "label": "Announcements",
+      "to": "a_loop"
+    },
+    {
+      "from": "p_switch",
+      "id": "e_p_switch_nf2bwgl4",
+      "label": "Deep dive",
+      "to": "nf2bwgl4"
+    },
+    {
+      "from": "p_loop",
+      "id": "e_p_loop_n66n9ofb",
+      "label": "",
+      "to": "n66n9ofb"
+    },
+    {
+      "from": "n66n9ofb",
+      "id": "e_n66n9ofb_p_plib",
+      "label": "Prompt Library",
+      "to": "p_plib"
+    },
+    {
+      "from": "p_plib",
+      "id": "e_p_plib_p_pupd",
+      "label": "",
+      "to": "p_pupd"
+    },
+    {
+      "from": "n66n9ofb",
+      "id": "e_n66n9ofb_p_pw",
+      "label": "Agent writes one",
+      "to": "p_pw"
+    },
+    {
+      "from": "p_pw",
+      "id": "e_p_pw_p_run",
+      "label": "",
+      "to": "p_run"
+    },
+    {
+      "from": "p_run",
+      "id": "e_p_run_p_hand",
+      "label": "",
+      "to": "p_hand"
+    },
+    {
+      "from": "p_pupd",
+      "id": "e_p_pupd_p_loop",
+      "label": "next row",
+      "to": "p_loop"
+    },
+    {
+      "from": "p_hand",
+      "id": "e_p_hand_p_loop",
+      "label": "",
+      "to": "p_loop"
+    },
+    {
+      "from": "p_hand",
+      "id": "e_p_hand_p_teams",
+      "label": "hand off",
+      "to": "p_teams"
+    },
+    {
+      "from": "p_teams",
+      "id": "e_p_teams_p_ok",
+      "label": "",
+      "to": "p_ok"
+    },
+    {
+      "from": "p_ok",
+      "id": "e_p_ok_p_plsave",
+      "label": "Yes",
+      "to": "p_plsave"
+    },
+    {
+      "from": "p_plsave",
+      "id": "e_p_plsave_p_approw",
+      "label": "",
+      "to": "p_approw"
+    },
+    {
+      "from": "p_ok",
+      "id": "e_p_ok_p_empty",
+      "label": "No",
+      "to": "p_empty"
+    },
+    {
+      "from": "a_loop",
+      "id": "e_a_loop_n_agent",
+      "label": "",
+      "to": "n_agent"
+    },
+    {
+      "from": "n_agent",
+      "id": "e_n_agent_p_fc",
+      "label": "",
+      "to": "p_fc"
+    },
+    {
+      "from": "p_fc",
+      "id": "e_p_fc_p_gates",
+      "label": "",
+      "to": "p_gates"
+    },
+    {
+      "from": "p_gates",
+      "id": "e_p_gates_a_slot",
+      "label": "Pass",
+      "to": "a_slot"
+    },
+    {
+      "from": "a_slot",
+      "id": "e_a_slot_a_upd",
+      "label": "Slot",
+      "to": "a_upd"
+    },
+    {
+      "from": "a_slot",
+      "id": "e_a_slot_n_create",
+      "label": "Spare",
+      "to": "n_create"
+    },
+    {
+      "from": "a_upd",
+      "id": "e_a_upd_a_loop",
+      "label": "next story",
+      "to": "a_loop"
+    },
+    {
+      "from": "n_create",
+      "id": "e_n_create_a_loop",
+      "label": "",
+      "to": "a_loop"
+    },
+    {
+      "from": "nf2bwgl4",
+      "id": "e_nf2bwgl4_p_dsrc",
+      "label": "From Contoso files",
+      "to": "p_dsrc"
+    },
+    {
+      "from": "p_dsrc",
+      "id": "e_p_dsrc_p_dw",
+      "label": "",
+      "to": "p_dw"
+    },
+    {
+      "from": "nf2bwgl4",
+      "id": "e_nf2bwgl4_p_dw",
+      "label": "Research",
+      "to": "p_dw"
+    },
+    {
+      "from": "p_dw",
+      "id": "e_p_dw_p_dupd",
+      "label": "Contoso files",
+      "to": "p_dupd"
+    },
+    {
+      "from": "p_dw",
+      "id": "e_p_dw_p_dfc",
+      "label": "Research",
+      "to": "p_dfc"
+    },
+    {
+      "from": "p_dfc",
+      "id": "e_p_dfc_p_dupd",
+      "label": "",
+      "to": "p_dupd"
+    },
+    {
+      "from": "p_hand",
+      "id": "e_p_hand_p_edit",
+      "label": "",
+      "to": "p_edit"
+    },
+    {
+      "from": "a_upd",
+      "id": "e_a_upd_p_edit",
+      "label": "",
+      "to": "p_edit"
+    },
+    {
+      "from": "p_dupd",
+      "id": "e_p_dupd_p_edit",
+      "label": "",
+      "to": "p_edit"
+    }
+  ],
+  "groups": [
+    {
+      "h": 140,
+      "id": "g_run",
+      "label": "Every run",
+      "w": 940,
+      "x": 20,
+      "y": 270
+    },
+    {
+      "h": 250,
+      "id": "g_prompt",
+      "label": "Prompts · rows 1-2 · loop",
+      "w": 1440,
+      "x": 1040,
+      "y": 20
+    },
+    {
+      "h": 250,
+      "id": "g_appr",
+      "label": "Prompt approval · its own flow · the loop does not wait",
+      "w": 960,
+      "x": 2520,
+      "y": 20
+    },
+    {
+      "h": 272,
+      "id": "g_ann",
+      "label": "Announcements · rows 3-7 + 4 spares · loop",
+      "w": 1448,
+      "x": 1040,
+      "y": 290
+    },
+    {
+      "h": 272,
+      "id": "g_dive",
+      "label": "Deep dive · row 8 · no loop",
+      "w": 1368,
+      "x": 1016,
+      "y": 598
+    },
+    {
+      "h": 152,
+      "id": "g_after",
+      "label": "When all three lanes finish",
+      "w": 312,
+      "x": 2904,
+      "y": 556
+    }
+  ],
+  "name": "Research loop",
+  "nodes": [
+    {
+      "action": "When Power Apps calls a flow",
+      "expect": "The trigger. Pressing Run on screen 1 creates the month's rows, then calls this flow with one input: the month. Every flow has to start with a trigger - this is the Power App pushing it in. Today it is a manual Start with a text box; it changes to 'When Power Apps calls a flow'.",
+      "id": "n_start",
+      "piece": "",
+      "status": "Needs setup",
+      "title": "Start: Run pressed on screen 1",
+      "type": "trigger",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 40,
+      "y": 310
+    },
+    {
+      "action": "Get items",
+      "expect": "Reads the 8 Stories rows that Run on screen 1 created for this month (IssueLabel = the month), in Position order. Each row says its slot type and what you chose: the seed, the library prompt, or the Contoso file. The loop then fills them one at a time.",
+      "id": "n_get",
+      "piece": "SP2",
+      "status": "Needs setup",
+      "title": "Get items: this month's 8 rows",
+      "type": "sharepoint",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 280,
+      "y": 310
+    },
+    {
+      "action": "Update item",
+      "expect": "The month's Issues row goes to Researching, so the month picker shows a run is in progress and Run is disabled.",
+      "id": "p_status",
+      "piece": "SP1",
+      "status": "Planned",
+      "title": "Set Status: Researching",
+      "type": "sharepoint",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 520,
+      "y": 310
+    },
+    {
+      "action": "Apply to each",
+      "expect": "The prompt loop. Rows 1 and 2, one at a time. The line back into this node is where it repeats.",
+      "id": "p_loop",
+      "piece": "",
+      "status": "Planned",
+      "title": "Apply to each prompt row (2)",
+      "type": "loop",
+      "updatedAt": "2026-10-02T17:21:19.549Z",
+      "x": 1072,
+      "y": 104
+    },
+    {
+      "action": "Switch",
+      "expect": "Right after the rows are read. Prompts, announcements and the deep dive run side by side, each in its own lane. None waits for another.",
+      "id": "p_switch",
+      "piece": "",
+      "status": "Planned",
+      "title": "Split into three lanes, side by side",
+      "type": "switch",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 760,
+      "y": 310
+    },
+    {
+      "action": "Get item",
+      "expect": "Reads the library row named in LibraryId - the verified, unsent prompt you picked on screen 1. No agent: its title, summary, full prompt and subject are copied into the slot's row as they are.",
+      "id": "p_plib",
+      "piece": "SP4",
+      "status": "Planned",
+      "title": "Get item: Prompt Library (the one you picked)",
+      "type": "sharepoint",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 1620,
+      "y": 40
+    },
+    {
+      "action": "Agent",
+      "expect": "Only for Agent writes one. No web search. Takes the topic you picked (or Agent picks) and the titles already sent, so it does not repeat one.\nShape, from September: title 7-9 words, summary 19-21 words, full prompt 250-365 words of HTML (Act as..., bold numbered headings, bullets).",
+      "id": "p_pw",
+      "piece": "AG2",
+      "status": "Planned",
+      "title": "Prompt writer",
+      "type": "agent",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 1620,
+      "y": 140
+    },
+    {
+      "action": "Update item",
+      "expect": "Writes PromptTitle, Summary, FullPrompt (HTML), SubjectArea and SourceMode into the slot's row. From the library prompt you picked, or from a new prompt once it is approved.",
+      "id": "p_pupd",
+      "piece": "SP2",
+      "status": "Planned",
+      "title": "Update item: Stories (prompt)",
+      "type": "sharepoint",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 1860,
+      "y": 40
+    },
+    {
+      "action": "Agent",
+      "expect": "Announcement writer. Sonnet 5, web search on.\nTakes the brief: window, seed, and the avoid lists (headlines and subject areas already used).\nGives 9 fields: publisher, headline, line, url, story_date, subject_area, evidence_quote, read_full_article, notes.\nWorks under Run node. Blocked in full runs until the tenant allows internet.",
+      "id": "n_agent",
+      "piece": "AG1",
+      "status": "Built",
+      "title": "Agent",
+      "type": "agent",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 1300,
+      "y": 320
+    },
+    {
+      "action": "Agent",
+      "expect": "Web search on, no knowledge. Takes the story and its url. Gives a verdict (Checked, Corrected or Disputed) and a note. Never sends the story back to the writer.",
+      "id": "p_fc",
+      "piece": "AG4",
+      "status": "Planned",
+      "title": "Fact-check",
+      "type": "agent",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 1540,
+      "y": 320
+    },
+    {
+      "action": "If / else",
+      "expect": "Drops the story if the story date is empty or outside the window, the url is already in Stories, or a length is out of range. The writer gets one retry on the same seed.",
+      "id": "p_gates",
+      "piece": "",
+      "status": "Planned",
+      "title": "Gates",
+      "type": "condition",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 1780,
+      "y": 320
+    },
+    {
+      "action": "Create item",
+      "expect": "Today: writes one complete announcement row to Stories (proven 23 Sep).\nPlan: used only for the 4 spares, with Position blank. Rows 3-7 already exist and use Update item.\nStory date wrapped in formatDateTime(trim(...),'yyyy-MM-dd'); GeneratedAt = utcNow() as an expression.",
+      "id": "n_create",
+      "piece": "SP2",
+      "status": "Built",
+      "title": "Create item (spare)",
+      "type": "sharepoint",
+      "updatedAt": "2026-09-24T23:45:34.983Z",
+      "x": 2240,
+      "y": 440
+    },
+    {
+      "action": "Get item",
+      "expect": "From Contoso files: reads the Title, Url and Body (the article text) of the Deep Dive Sources row you picked. No internet needed.",
+      "id": "p_dsrc",
+      "piece": "SP5",
+      "status": "Planned",
+      "title": "Get item: Deep Dive Sources",
+      "type": "sharepoint",
+      "updatedAt": "2026-09-24T23:45:22.874Z",
+      "x": 1336,
+      "y": 628
+    },
+    {
+      "action": "Agent",
+      "expect": "From Contoso files: writes from the Body text, no search, no fact-check. Research: searches and reads the page, then goes to the fact-check.\nShape, from September: source 2 words, headline 8 words, body 48 words in one paragraph, one url.",
+      "id": "p_dw",
+      "piece": "AG3",
+      "status": "Planned",
+      "title": "Deep dive writer",
+      "type": "agent",
+      "updatedAt": "2026-09-24T23:45:22.874Z",
+      "x": 1616,
+      "y": 698
+    },
+    {
+      "action": "Agent",
+      "expect": "Checks a deep dive the agent found on the web. Skipped for an Contoso piece.",
+      "id": "p_dfc",
+      "piece": "AG4",
+      "status": "Planned",
+      "title": "Fact-check (Research only)",
+      "type": "agent",
+      "updatedAt": "2026-09-24T23:45:22.874Z",
+      "x": 1876,
+      "y": 758
+    },
+    {
+      "action": "Update item",
+      "expect": "Writes Source, Headline, Body, SourceUrl, and the verdict when there is one, into row 8.",
+      "id": "p_dupd",
+      "piece": "SP2",
+      "status": "Planned",
+      "title": "Update item: Stories (deep dive)",
+      "type": "sharepoint",
+      "updatedAt": "2026-09-24T23:45:22.874Z",
+      "x": 2120,
+      "y": 696
+    },
+    {
+      "action": "Update item",
+      "expect": "The end of the run: when all three lanes are done, the month's Issues row goes to Editing and screen 2 can refresh. A prompt still waiting for approval does not hold this up.",
+      "id": "p_edit",
+      "piece": "SP1",
+      "status": "Planned",
+      "title": "Set Status: Editing",
+      "type": "sharepoint",
+      "updatedAt": "2026-09-25T18:12:34.216Z",
+      "x": 2944,
+      "y": 616
+    },
+    {
+      "action": "If / else",
+      "expect": "If user selects \"Prompt Library\" they will also have selected the prompt to us / if the user selects \"make my own prompt / they will pick from the \"topics\" list and there will be an agent that writes a new prompt",
+      "id": "n66n9ofb",
+      "piece": "",
+      "status": "Needs setup",
+      "title": "Prompt Library or Agent writes",
+      "type": "condition",
+      "updatedAt": "2026-10-02T17:21:17.375Z",
+      "x": 1288,
+      "y": 80
+    },
+    {
+      "action": "If / else",
+      "expect": "User will select from Contoso Deep Dive options, either a prepopulated list of Contoso Deep Dive materials (from a sharepoint) OR the Agent will build something",
+      "id": "nf2bwgl4",
+      "piece": "",
+      "status": "Needs setup",
+      "title": "From Contoso Files or Research?",
+      "type": "condition",
+      "updatedAt": "2026-10-02T17:19:05.119Z",
+      "x": 1064,
+      "y": 672
+    },
+    {
+      "action": "Create item",
+      "expect": "Only after approval. The new prompt goes into the library with Verified on and its output as TestOutput. Sent stays off until Approve on screen 2.",
+      "id": "p_plsave",
+      "piece": "SP4",
+      "status": "Planned",
+      "title": "Create item: Prompt Library (Verified on)",
+      "type": "sharepoint",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 3020,
+      "y": 60
+    },
+    {
+      "action": "Start and wait for an approval",
+      "expect": "Posts the new prompt and its output in Teams to whoever pressed Run, and waits - in this small flow only. The research loop has already moved on. Nothing is written until they approve.",
+      "id": "p_teams",
+      "piece": "",
+      "status": "Planned",
+      "title": "Teams: approve the new prompt",
+      "type": "approval",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 2540,
+      "y": 140
+    },
+    {
+      "action": "Agent",
+      "expect": "Runs the prompt the writer just wrote, on a sample, so the approver sees real output. The output is kept as TestOutput.",
+      "id": "p_run",
+      "piece": "AG2",
+      "status": "Planned",
+      "title": "Run the new prompt once",
+      "type": "agent",
+      "updatedAt": "2026-10-02T17:22:16.167Z",
+      "x": 1856,
+      "y": 136
+    },
+    {
+      "action": "If / else",
+      "expect": "Yes: into the library (Verified on) and into the issue. No: nothing is written.",
+      "id": "p_ok",
+      "piece": "",
+      "status": "Planned",
+      "title": "Approved?",
+      "type": "condition",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 2780,
+      "y": 140
+    },
+    {
+      "action": "Other",
+      "expect": "Not approved: nothing is written. The row stays empty, and screen 2 shows it so you can pick a library prompt instead.",
+      "id": "p_empty",
+      "piece": "",
+      "status": "Planned",
+      "title": "Leave the row empty for you",
+      "type": "other",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 3020,
+      "y": 180
+    },
+    {
+      "action": "Apply to each",
+      "expect": "The announcement loop - this is where the agent runs over and over. Nine times: rows 3 to 7, then 4 spares. One at a time, so each brief's avoid list includes every story already found.",
+      "id": "a_loop",
+      "piece": "",
+      "status": "Planned",
+      "title": "Apply to each: 5 rows, then 4 spares",
+      "type": "loop",
+      "updatedAt": "2026-09-24T23:23:32.683Z",
+      "x": 1064,
+      "y": 320
+    },
+    {
+      "action": "If / else",
+      "expect": "Rows 3-7 already exist, so they are updated. A spare has no row yet, so it is created with no Position.",
+      "id": "a_slot",
+      "piece": "",
+      "status": "Planned",
+      "title": "Slot or spare?",
+      "type": "condition",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 2020,
+      "y": 320
+    },
+    {
+      "action": "Update item",
+      "expect": "Writes the story and its verdict into its row in one write. Story date wrapped in formatDateTime(trim(...),'yyyy-MM-dd').",
+      "id": "a_upd",
+      "piece": "SP2",
+      "status": "Planned",
+      "title": "Update item: Stories (announcement)",
+      "type": "sharepoint",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 2260,
+      "y": 320
+    },
+    {
+      "action": "Run a child flow (don't wait)",
+      "expect": "Starts the prompt approval as its own small flow and goes straight on to the next row. The loop never waits for a person.",
+      "id": "p_hand",
+      "piece": "",
+      "status": "Planned",
+      "title": "Hand off for approval - don't wait",
+      "type": "child",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 2100,
+      "y": 140
+    },
+    {
+      "action": "Update item",
+      "expect": "Only after approval: writes the new prompt into its row. If the issue is already open on screen 2, a refresh shows it.",
+      "id": "p_approw",
+      "piece": "SP2",
+      "status": "Planned",
+      "title": "Update item: Stories (prompt row)",
+      "type": "sharepoint",
+      "updatedAt": "2026-09-24T23:19:42.000Z",
+      "x": 3260,
+      "y": 60
+    }
+  ],
+  "order": 1,
+  "updatedAt": "2026-10-02T17:22:16.167Z"
+}
