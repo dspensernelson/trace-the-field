@@ -4,7 +4,7 @@ An interactive map of how one data field travels through an AI-assisted build: f
 
 **Live page:** https://dspensernelson.github.io/trace-the-field/
 
-The example is a monthly AI newsletter for a fictional firm, Contoso Consulting, built on Copilot Studio agents, SharePoint lists, a Power App, and Power Automate flows. Names, links, and IDs are placeholders.
+The example is a monthly AI newsletter for a fictional firm, Contoso Consulting, built on Copilot Studio agents, SharePoint lists, a Power App, and Power Automate flows. Names, links, and IDs are placeholders, and most of the text is lorem ipsum. The structure, field names, and wiring are the point.
 
 ## The idea
 
@@ -22,7 +22,7 @@ Every piece carries one ID, the same on every tab, so a box in the trace can be 
 | --- | --- |
 | Trace the field | The field-lineage board described above |
 | Flows | The Power Automate flows as a node canvas |
-| Agents | Each agent's paste-ready instructions, outputs, and test briefs |
+| Agents | Each agent's instructions, outputs, and test briefs |
 | Prompt drafts | Ten starter prompts for the prompt library |
 | SharePoint | The lists and their columns |
 | Process map | The whole process as one diagram |

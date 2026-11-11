@@ -1,5 +1,5 @@
 {
-  "about": "Approve on screen 2 fires it. Saves the finished email as a file and gets it signed off.",
+  "about": "Minim veniam quis 2 nostrud exercitation. Ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure in.",
   "cid": "FLOW2",
   "edges": [
     {
@@ -42,8 +42,8 @@
   "name": "Approval routing",
   "nodes": [
     {
-      "action": "When Power Apps calls a flow",
-      "expect": "Approve on screen 2 calls it with the month and the finished email's HTML (composed once, htmlForSend).",
+      "action": "Excepteur Sint Occaecat cupidatat non proident",
+      "expect": "Id est laborum 2 lorem ipsum dolor sit amet consectetur adipiscing elit sed DO (eiusmod tempor, incididunt).",
       "id": "a_trig",
       "piece": "APP2",
       "status": "Planned",
@@ -54,29 +54,29 @@
     },
     {
       "action": "Create file",
-      "expect": "Saves YYYY-MM.html. A column can't hold it: September's email is 62,216 characters against a 63,999 limit.",
+      "expect": "Incididunt UT-LABORE.et. Dolore magna aliqua enim ad: Minim veniam quis 62,216 nostrud exercitation ullamco 63,999 laboris.",
       "id": "a_file",
       "piece": "SP6",
       "status": "Planned",
-      "title": "Create file: Issue Files",
+      "title": "Consequat duis: Aute Irure",
       "type": "sharepoint",
       "x": 290,
       "y": 240
     },
     {
-      "action": "Start and wait for an approval",
-      "expect": "Reviewers get the file link. The approval rule is yours (default: you alone, first to respond).",
+      "action": "Irure in reprehenderit voluptate velit esse",
+      "expect": "Sed do eiusmod tempor incididunt. Ut labore et dolore magna (aliqua: enim ad, minim veniam quis).",
       "id": "a_appr",
       "piece": "",
       "status": "Planned",
-      "title": "Start and wait for an approval",
+      "title": "Irure in reprehenderit voluptate velit esse",
       "type": "approval",
       "x": 520,
       "y": 240
     },
     {
       "action": "If / else",
-      "expect": "Yes or No from the approval.",
+      "expect": "Velit esse Cillum fugiat nulla pariatur.",
       "id": "a_cond",
       "piece": "",
       "status": "Planned",
@@ -87,33 +87,33 @@
     },
     {
       "action": "Update item",
-      "expect": "Status Approved. Draft and send starts from this.",
+      "expect": "Et Dolore. Magna aliqua enim ad minim veniam.",
       "id": "a_yes",
       "piece": "SP1",
       "status": "Planned",
-      "title": "Update item: Issues -> Approved",
+      "title": "Fugiat nulla: Pariatur -> Excepteur",
       "type": "sharepoint",
       "x": 980,
       "y": 160
     },
     {
       "action": "Update item",
-      "expect": "Status back to Editing so you can change it and approve again.",
+      "expect": "Esse cillum fugiat Nulla pariatur excepteur sint occaecat cupidatat non proident sunt.",
       "id": "a_no",
       "piece": "SP1",
       "status": "Planned",
-      "title": "Update item: Issues -> Editing",
+      "title": "Anim id: Est -> Laborum",
       "type": "sharepoint",
       "x": 980,
       "y": 320
     },
     {
-      "action": "Post message in a chat or channel",
-      "expect": "The reviewers' comments, so you see why it came back.",
+      "action": "Nostrud exercitation ullamco laboris nisi aliquip ex",
+      "expect": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
       "id": "a_teams",
       "piece": "",
       "status": "Planned",
-      "title": "Post the comments to Teams",
+      "title": "Sint occaecat cupidatat non Proident",
       "type": "teams",
       "x": 1210,
       "y": 320

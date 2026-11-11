@@ -1,5 +1,5 @@
 {
-  "about": "Starts when the issue is approved. Leaves the email in your Drafts, then archives it once you have sent it.",
+  "about": "Irure in reprehenderit voluptate velit esse. Cillum fugiat nulla pariatur excepteur Sint, occaecat cupidatat non proident sunt culpa qui officia.",
   "cid": "FLOW3",
   "edges": [
     {
@@ -42,8 +42,8 @@
   "name": "Draft and send",
   "nodes": [
     {
-      "action": "When an item is created or modified",
-      "expect": "Starts when an Issues row's Status becomes Approved.",
+      "action": "Fugiat nulla pariatur excepteur sint occaecat cupidatat",
+      "expect": "Ex ea commodo Consequat duis Aute irure In.",
       "id": "s_trig",
       "piece": "SP1",
       "status": "Planned",
@@ -54,29 +54,29 @@
     },
     {
       "action": "Get file content",
-      "expect": "The finished YYYY-MM.html.",
+      "expect": "Irure in REPREHENDERIT-VOLUPTATE.velit.",
       "id": "s_file",
       "piece": "SP6",
       "status": "Planned",
-      "title": "Get file content: Issue Files",
+      "title": "Lorem ipsum dolor: Sit Amet",
       "type": "sharepoint",
       "x": 290,
       "y": 240
     },
     {
       "action": "Get file content",
-      "expect": "The two logos, sent as inline cid: parts exactly like September.",
+      "expect": "Consectetur adipiscing elit, sed do eiusmod tempor: incididunt ut labore Et.",
       "id": "s_logo",
       "piece": "",
       "status": "Planned",
-      "title": "Get file content: logos",
+      "title": "Veniam quis nostrud: exercitation",
       "type": "sharepoint",
       "x": 520,
       "y": 240
     },
     {
-      "action": "Send an HTTP request",
-      "expect": "Builds the email with the logos inline and leaves it in your Drafts. You press send. Test in Outlook on Windows first.",
+      "action": "Ut labore ET dolore",
+      "expect": "Minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo Consequat. Duis aute irure. In reprehenderit Voluptate velit Esse cillum.",
       "id": "s_draft",
       "piece": "EM1",
       "status": "Planned",
@@ -86,34 +86,34 @@
       "y": 240
     },
     {
-      "action": "Start and wait for an approval",
-      "expect": "One click from you after you press send.",
+      "action": "Irure in reprehenderit voluptate velit esse",
+      "expect": "Adipiscing elit sed do eiusmod tempor incididunt ut.",
       "id": "s_wait",
       "piece": "",
       "status": "Planned",
-      "title": "You confirm it went out",
+      "title": "Aliquip ex ea commodo consequat",
       "type": "approval",
       "x": 980,
       "y": 240
     },
     {
       "action": "Copy file",
-      "expect": "The issue lands in the archive the same day.",
+      "expect": "Amet consectetur adipiscing elit sed do eiusmod tempor incididunt.",
       "id": "s_copy",
       "piece": "SP7",
       "status": "Planned",
-      "title": "Copy file: Past Issues",
+      "title": "Amet consectetur: Adipiscing Elit",
       "type": "sharepoint",
       "x": 1210,
       "y": 240
     },
     {
       "action": "Update item",
-      "expect": "Status Sent, SentAt stamped.",
+      "expect": "Eiusmod Tempor, Incididunt ut.",
       "id": "s_sent",
       "piece": "SP1",
       "status": "Planned",
-      "title": "Update item: Issues -> Sent",
+      "title": "Dolore magna: Aliqua -> Enim",
       "type": "sharepoint",
       "x": 1440,
       "y": 240
